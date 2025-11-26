@@ -1,5 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@700&display=swap');
-
+.logo-header {
+    width: 100%;
+    background: #181818;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.30rem;
+}
+.logo-header img {
+    width: 120px;
+    max-width: 48vw;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+@media (max-width: 800px) {
+    .logo-header {
+        display: flex;
+    }
+    nav .nav-logo {
+        display: none !important;
+    }
+    nav {
+        margin-top: 0 !important;
+        height: 4.5rem !important;
+        min-height: 4.5rem !important;
+        padding: 0 !important;
+        background: #181818 !important;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.14) !important;
+        box-shadow: none !important;
+    }
+    .nav-container {
+        min-height: 4.5rem !important;
+        height: 4.5rem !important;
+        align-items: flex-start !important;
+    }
+    .nav-menu {
+        margin-top: 0 !important;
+        padding-top: 0.2rem !important;
+        height: 4.5rem !important;
+        align-items: center !important;
+    }
+    .nav-link {
+        font-size: 0.98rem !important;
+        padding: 0.13rem 0 !important;
+    }
+    .hero {
+        padding-top: 2.5rem !important;
+    }
+}
+@media (min-width: 801px) {
+    .logo-header {
+        display: none !important;
+    }
+    nav .nav-logo { display: flex !important; }
+}
 * {
     margin: 0;
     padding: 0;
