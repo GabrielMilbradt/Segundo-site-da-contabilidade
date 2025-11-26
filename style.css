@@ -194,9 +194,53 @@ nav.scrolled .nav-logo img {
     }
     .nav-logo { display: none !important; }
 }
-@media (min-width: 769px) {
-    .nav-logo-mobile { display: none !important; }
-    .nav-logo { display: flex; }
+/* =========================
+   Ajustes Navbar & Hero Mobile
+   ========================= */
+
+@media (max-width: 768px) {
+  nav {
+    height: 4.5rem !important;
+    min-height: 4.5rem !important;
+    padding: 0 !important;
+  }
+
+  .nav-container {
+    min-height: 4.5rem !important;
+    height: 4.5rem !important;
+    align-items: flex-start !important;
+  }
+  
+  .nav-logo-mobile img {
+    height: 2.9rem !important;
+    min-width: 90px !important;
+    max-width: 140px !important;
+    margin-top: 0.4rem !important;
+  }
+
+  .nav-menu {
+    margin-top: 0 !important;
+    padding-top: 0.2rem !important;
+    height: 4.5rem !important;
+    align-items: center !important;
+  }
+
+  .nav-link {
+    font-size: 0.98rem !important;
+    padding: 0.15rem 0 !important;
+  }
+
+  /* O navbar sempre fundo escuro sólido no mobile */
+  nav, nav.scrolled {
+    background: #181818 !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.14) !important;
+    box-shadow: none !important;
+  }
+
+  /* Pula o conteúdo para não ficar escondido atrás do nav fixo */
+  .hero {
+    padding-top: 5.2rem !important;
+  }
 }
 
 /* --- HERO ajute background mobile --- */
