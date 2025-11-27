@@ -28,7 +28,7 @@
 }
 
 /* Variáveis de altura para referência no mobile */
-/* Logo Height: 66px */
+/* Logo Height (fixed-top-logo): 66px */
 /* Nav Height: 48px */
 
 @media (max-width: 800px) {
@@ -60,7 +60,9 @@
     .fixed-top-logo {
         display: none !important;
     }
-    nav .nav-logo { display: flex !important; }
+    nav .nav-logo { 
+        display: flex !important; /* Mostra a logo dentro do nav no desktop */
+    }
     nav {
         top: 0 !important; /* Volta ao normal no desktop */
         margin-top: 0 !important;
@@ -70,7 +72,7 @@
     }
 }
 
-/* O RESTANTE DE TODO O SEU CSS ORIGINAL AQUI, INCLUINDO AS QUERIES E REGULARIZAÇÕES. */
+/* O RESTANTE DE TODO O SEU CSS ORIGINAL AQUI */
 
 * {
     margin: 0;
@@ -88,7 +90,7 @@
     --light-gray: #e9ecef;
     --dark: #121212;
     --gray: #8a8d93;
-    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.8s ease, transform 0.8s ease; /* Adicionado transições para fade-up */
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.8s ease, transform 0.8s ease;
 }
 
 html {
@@ -145,14 +147,14 @@ nav {
     -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-    height: 7rem;
+    height: 7rem; /* Altura original no desktop */
     display: flex;
     align-items: center;
     transition: all 0.3s ease-in-out;
     padding: 0 1rem;
 }
 nav.scrolled {
-    height: 5.5rem;
+    height: 5.5rem; /* Altura ao rolar no desktop */
     background: rgba(18, 18, 18, 0.98);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
@@ -213,23 +215,11 @@ nav.scrolled .nav-logo img {
     width: 100%;
 }
 .nav-spacer {
-    width: 170px;
+    width: 170px; /* Espaçamento igual ao da logo para centralizar o menu */
     flex-shrink: 0;
 }
 
-/* Logo centralizada só no mobile (ESTRUTURA ANTIGA, PREFERÊNCIA PARA .fixed-top-logo) */
-.nav-logo-mobile {
-    display: none;
-}
-.nav-logo-mobile img {
-    display: block;
-    margin: 0 auto;
-    height: 5rem;
-    min-width: 110px;
-    object-fit: contain;
-}
-
-/* RESPONSIVO NAVBAR (Modificado para usar .fixed-top-logo) */
+/* RESPONSIVO NAVBAR (Mobile) */
 @media (max-width: 768px) {
     /* Otimização da navbar no mobile */
     nav {
@@ -254,7 +244,7 @@ nav.scrolled .nav-logo img {
         align-items: center !important;
         gap: 1.2rem;
         flex-wrap: nowrap;
-        overflow-x: auto;
+        overflow-x: auto; /* Permite rolagem horizontal dos links */
         justify-content: flex-start;
         padding-bottom: 0;
     }
@@ -281,8 +271,8 @@ nav.scrolled .nav-logo img {
         box-shadow: none !important;
     }
 
-    .nav-logo, .nav-spacer, .nav-logo-mobile {
-        display: none !important;
+    .nav-logo, .nav-spacer {
+        display: none !important; /* Esconde a logo e o spacer no mobile */
     }
 }
 /* --- HERO ajute background mobile --- */
@@ -297,7 +287,7 @@ nav.scrolled .nav-logo img {
     align-items: center;
     text-align: center;
     position: relative;
-    padding-top: 7rem;
+    padding-top: 7rem; /* Padrão Desktop */
 }
 @media (min-width: 993px) {
     .hero {
@@ -883,36 +873,6 @@ footer {
     .section-title {
         margin-bottom: 3rem;
     }
-
-    /* Menu de Navegação - Otimização */
-    .nav-container {
-        padding: 0 1.25rem;
-    }
-    
-    nav {
-        height: auto; /* Permite que o menu quebre em 2 linhas no tablet/celular */
-        padding: 0;
-    }
-
-    .nav-logo {
-        padding: 0.5rem 1.25rem;
-    }
-    
-    .nav-menu {
-        width: 100%;
-        gap: 1rem;
-        flex-wrap: wrap; /* Permite que os links quebrem a linha */
-        justify-content: space-around;
-        padding: 0.5rem 1.25rem; /* Padding na parte de baixo do menu */
-        border-top: 1px solid rgba(212, 175, 55, 0.1);
-    }
-    .nav-link {
-        font-size: 0.95rem; /* Fonte menor */
-        padding: 0.2rem 0.5rem;
-    }
-    .nav-spacer {
-        display: none;
-    }
     
     .about-content {
         grid-template-columns: 1fr;
@@ -949,14 +909,6 @@ footer {
     /* MUDANÇA: Altura mínima menor no Hero */
     .hero {
         min-height: 70vh; /* Diminui para caber mais na tela inicial */
-        /* padding-top: 8rem; - Ajustado no bloco do fixed-top-logo */
-    }
-
-    /* Navegação - OTIMIZAÇÃO: Já ajustada para ficar abaixo da logo */
-    
-    .nav-logo img {
-        height: 4rem; /* Logo menor */
-        margin-top: 0.5rem;
     }
     
     /* Cards e Grids */
@@ -1019,12 +971,11 @@ footer {
     }
     
     .hero h1 {
-        /* MUDANÇA: Fonte maior que a anterior (2.2rem) para telas bem pequenas */
         font-size: 2.5rem; 
     }
     
     .hero p {
-        font-size: 1.1rem; /* Fonte um pouco maior que a anterior (1rem) */
+        font-size: 1.1rem; 
     }
     
     .cta-button {
@@ -1038,10 +989,6 @@ footer {
         padding: 0.5rem 20px;
     }
     
-    .nav-logo img {
-        height: 3.5rem;
-    }
-
     /* Cards e Grids */
     .services-grid {
         grid-template-columns: 1fr;
